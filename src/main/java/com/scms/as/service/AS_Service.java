@@ -1,12 +1,23 @@
 package com.scms.as.service;
 
-import org.springframework.stereotype.Service;
 
+import java.util.List;
+
+import com.scms.as.entity.Address;
 import com.scms.as.entity.OrderHeader;
+import com.scms.as.entity.OrderItems;
 
-@Service
+
 public interface AS_Service {
 	
-	public OrderHeader getOrder(OrderHeader orderHeader);
+	public List<OrderHeader> getOrder(OrderHeader orderHeader);
+	
+	public Address getAddress(Address address);
+	
+	public OrderItems getOrderItems(OrderItems orderItems);
+	
+	public OrderHeader addOrder(OrderHeader orderHeader);
+	
+	
 
 }

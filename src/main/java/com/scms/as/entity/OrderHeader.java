@@ -2,10 +2,14 @@ package com.scms.as.entity;
 
 import java.time.LocalDate;
 
+import org.hibernate.annotations.CreationTimestamp;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,10 +22,12 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+
 public class OrderHeader {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private Long id;
 	
 	private String userName;
@@ -32,10 +38,14 @@ public class OrderHeader {
 	
 	private Long purchaseOrderNumber;
 	
+	
+	@CreationTimestamp
 	private LocalDate purchaseOrderDate;
 	
+	@OneToOne(cascade = {CascadeType.ALL})
 	private OrderItems orderItems;
 	
+	@OneToOne(cascade = {CascadeType.ALL})
 	private Address address;
 	
 	

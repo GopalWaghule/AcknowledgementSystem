@@ -1,5 +1,7 @@
 package com.scms.as.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,18 +23,16 @@ public class AcknowledgementSystemController {
 	
 	
 	@GetMapping("/getOrder")
-	public String getOrder(@RequestBody OrderHeader header , Model model) {
-		
-		model.addAttribute("header", header);
-		
-		return "saveOrder";
+	public List<OrderHeader> getOrder(@RequestBody OrderHeader header) {
+		List<OrderHeader> order = asService.getOrder(header);		
+		return order;
 	}
 	
-	@PostMapping("/getOrder")
+	@PostMapping("/saveOrder")
 	public ResponseEntity<OrderHeader> saveOrder(@RequestBody OrderHeader header){
 		
 	
-		OrderHeader oh= asService.getOrder(header);
+		OrderHeader oh= asService.addOrder(header);
 		
 		return new ResponseEntity<>(oh, HttpStatus.ACCEPTED);
 		
