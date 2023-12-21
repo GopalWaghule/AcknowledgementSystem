@@ -2,6 +2,7 @@ package com.scms.as.entity;
 
 import java.time.LocalDate;
 import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,37 +15,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @ToString
-public class OrderHeader {
-	
+@Entity
+public class AD_Document {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	
+	@GeneratedValue(strategy =GenerationType.IDENTITY)
 	private Long id;
-	
 	private String userName;
-	
-	private String userMob;
-	
-	private String userEmail;
-	
-	
 	private Long purchaseOrderNumber;
-	
 	@CreationTimestamp
-	private LocalDate purchaseOrderDate;
+	private LocalDate documentCreatedDate;
+	private String acknowledgementType;
+	private Double orderValue;
 	
-	@OneToOne(cascade = {CascadeType.ALL})
-	private OrderItems orderItems;
-	
-	@OneToOne(cascade = {CascadeType.ALL})
-	private Address address;
-	
-	
-	 
+	@OneToOne(cascade = CascadeType.ALL)
+	private OrderItems orderItem;
+
 }

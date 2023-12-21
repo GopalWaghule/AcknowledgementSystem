@@ -7,5 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.scms.as.entity.OrderItems;
 
 public interface OrderItemsDao extends JpaRepository<OrderItems, Serializable>{
+	
+	
 
 }

@@ -1,6 +1,4 @@
 package com.scms.as.entity;
-
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -11,24 +9,25 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Entity
 @Getter
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class OrderItems {
-	
+@Entity
+public class OrderItems {	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
 	private Long productNumber;
 	
-	private String producName;
+	private String productName;
 	
 	private int productQuantity;
 	
 	private Long productPrice;
+
+	
 
 }
